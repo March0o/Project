@@ -146,6 +146,7 @@ function UpdateDisplayCart()
     if (Object.values(currentCartData.products) == null || Object.values(currentCartData.products).length == 0)
     {
         cartElement.innerHTML = 'Add to Cart!'; 
+        document.getElementById('CartCounter').innerHTML = 0;
     }
     else
     {
@@ -236,6 +237,9 @@ function UpdateDisplayCart()
 
         buttonListItem.appendChild(checkoutButton);
         cartElement.appendChild(buttonListItem);
+
+        // Update Counter
+        document.getElementById('CartCounter').innerHTML = products.length;
     }
 }
 

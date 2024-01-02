@@ -1,0 +1,143 @@
+<!DOCTYPE html lang='en'>
+
+<html>
+
+    <head>
+
+        <title>PizzaPlace - Contact Us</title>
+
+        <meta charset='utf-8'>
+        <meta name='description' content='homepage'>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles/style.css">
+
+    </head>
+
+    <nav class="navbar navbar-expand-xl"> <!-- Navbar-->
+
+      <a class="navbar-brand" href="index.html">
+        <img src="images/Logo.svg" alt="PizzaPlace Logo" height="100" width="120">
+       </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul style="margin-left: 0;" class="navbar-nav" id="navLinks"> <!-- Navbar Links-->
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop.html">Order Online</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="aboutUs.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="contactUs.html">Contact Us</a>
+              </li>
+            </ul>
+
+            <div class="ms-auto" id="userSection"> <!-- User Section -->
+              <div class="dropdown nav-item">
+
+                <div> <!-- Register/Sign Out Button-->
+                  <a id="Register/SignOut" style="width: 10em;" href="signUp.html" class="btn btn-danger" role="button">Register</a>
+                 </div>
+
+                <!-- Log-In/User Info Dropdown-->
+                <button id="SignIn/UserInfoBtn" style="width: 10em; margin-top: .25em; margin-bottom: .25em;" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                  Log In
+                </button>
+
+                <form id="SignIn/UserInfo" class="dropdown-menu p-4" style="min-width: 250px;">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="LogInEmail" placeholder="email@example.com">
+                    <label for="LogInEmail">Email address</label>          
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="LogInPassword" placeholder="Password">
+                    <label for="LogInPassword">Password</label>
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <a href="forgot.html">Forgot Password?</a>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary" onclick="SignIn()">Sign in</button>
+                  <div id="SignInAlertDiv">
+
+                  </div>
+                </form>
+                
+              </div>
+           </div>
+
+            <div class="dropdown dropstart-lg"> <!-- Shopping Cart Dropdown-->
+              <div id="shoppingCartdropdown" class="dropdown nav-item">
+                <button class="btn btn-danger btn-lg" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" id="shopBtn" style="width: 18em;">
+                  <img style="height: 3em;" src="images/Cart.png">
+                </button>
+                <ul class="dropdown-menu" id="cart" style="max-height: 30em; overflow-y: scroll;">
+                  <li><a class="dropdown-item" href="#">Pizza 1</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+      </nav>
+
+    <body class="bg-image" 
+    style="background-color: darkgrey; background-image: url('images/PizzaBack.jpg'); background-size: cover;background-attachment: fixed; height: 100vh; background-blend-mode: darken">
+
+    <div style="margin-top: em;" class="container">
+
+      <div class="row">
+        <div class="col-md-8 col-lg-6" style="margin-top: 1em; margin-left: auto; margin-right: auto;">
+            <div class="card">
+              <div class="card-body">
+                <h5 style="margin-bottom: 2em;" class="card-title">Speak to us Directly</h5>
+                <p style="font-weight:500" class="card-text">Visit us in store!</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2329.401403428271!2d-8.463897922361543!3d54.27916630451939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485ee84ef3fb4b37%3A0xc76b5b21d985fb79!2sAtlantic%20Technological%20University%20Sligo!5e0!3m2!1sen!2sie!4v1704152254720!5m2!1sen!2sie" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p style="margin-top: 15%; font-weight:500" class="card-text">Our Contact Details</p>
+                <p class="card-text"> Phone Number: +353 123 123 1233</p>
+                <p class="card-text"> Email : pizzaPlace@email.com</p>
+              </div>  
+          </div>
+        </div>
+
+        <div class="col-md-8 col-lg-6" style="margin-top: 1em; margin-left: auto; margin-right: auto;">
+            <div class="card">
+              <div class="card-body">
+                <h5 style="margin-bottom: 2em;" class="card-title">Send us an email</h5>            
+                <form>
+                  <div class="mb-3">
+                    <label for="EmailInput" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="EmailInput" pattern="^.{1,20}(@).{0,20}[.]{1,3}.{1,8}$" placeholder="name@example.com">
+                  </div>
+                  <div class="mb-3">
+                    <label for="feedbackInput" class="form-label">Example textarea</label>
+                    <textarea style="height: 30em;" class="form-control" id="feedbackInput" rows="5" placeholder="Enter Feedback here!"></textarea>
+                  </div>
+
+                    <button type="submit" class="btn btn-primary">Send Feedback</button>
+
+                </form>
+              </div>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="shopScript.js"></script>
+        <script src="accountScript.js"></script>
+      </body>
+
+</html>

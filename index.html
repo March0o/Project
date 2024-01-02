@@ -1,0 +1,113 @@
+<!DOCTYPE html lang='en'>
+
+<html>
+
+    <head>
+
+        <title>PizzaPlace - Home</title>
+
+        <meta charset='utf-8'>
+        <meta name='description' content='homepage'>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles/style.css">
+
+    </head>
+
+    <nav class="navbar navbar-expand-xl"> <!-- Navbar-->
+
+      <a class="navbar-brand" href="index.html">
+        <img src="images/Logo.svg" alt="PizzaPlace Logo" height="100" width="120">
+       </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul style="margin-left: 0;" class="navbar-nav" id="navLinks"> <!-- Navbar Links-->
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop.html">Order Online</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="aboutUs.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contactUs.html">Contact Us</a>
+              </li>
+            </ul>
+
+            <div class="ms-auto" id="userSection"> <!-- User Section -->
+              <div class="dropdown nav-item">
+
+                <div> <!-- Register/Sign Out Button-->
+                  <a id="Register/SignOut" style="width: 10em;" href="signUp.html" class="btn btn-danger" role="button">Register</a>
+                 </div>
+
+                <!-- Log-In/User Info Dropdown-->
+                <button id="SignIn/UserInfoBtn" style="width: 10em; margin-top: .25em; margin-bottom: .25em;" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                  Log In
+                </button>
+
+                <form id="SignIn/UserInfo" class="dropdown-menu p-4" style="min-width: 250px;">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="LogInEmail" placeholder="email@example.com">
+                    <label for="LogInEmail">Email address</label>          
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="LogInPassword" placeholder="Password">
+                    <label for="LogInPassword">Password</label>
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <a href="forgot.html">Forgot Password?</a>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary" onclick="SignIn()">Sign in</button>
+                  <div id="SignInAlertDiv">
+
+                  </div>
+                </form>
+                
+              </div>
+           </div>
+
+            <div class="dropdown dropstart-lg"> <!-- Shopping Cart Dropdown-->
+              <div id="shoppingCartdropdown" class="dropdown nav-item">
+                <button class="btn btn-danger btn-lg" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" id="shopBtn" style="width: 18em;">
+                  <img style="height: 3em;" src="images/Cart.png">
+                </button>
+                <ul class="dropdown-menu" id="cart" style="max-height: 30em; overflow-y: scroll;">
+                  <li><a class="dropdown-item" href="#">Pizza 1</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+      </nav>
+
+    <body class="bg-image" 
+    style="background-color: darkgrey; background-image: url('images/PizzaBack.jpg'); background-size: cover;background-attachment: fixed; height: 100vh; background-blend-mode: darken">
+
+    <div class="card text-center .mx-auto" style="margin-top: 15%; width: 60%; margin-left: auto; margin-right: auto;"> <!-- Eircode Input-->
+      <div class="card-body">
+        <h5 class="card-title">Enter Eircode</h5>
+        <p class="card-text">Enter your Eircode to find a local PizzaPlace by you!</p>
+        <form action="shop.html">
+          <input style="margin: auto; width: 100%; text-align: center; text-transform: uppercase;" type="text" id="Eircode" name="Eircode" placeholder="Eg: A11 B888" pattern="^[a-zA-Z][0-9]{2}\s[a-zA-Z0-9]{4}$"><br><br>
+          <input class="btn btn-primary" type="submit" value="Order Delivery">
+        </form>
+      </div>
+    </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="shopScript.js"></script>
+        <script src="accountScript.js"></script>
+      </body>
+
+</html>

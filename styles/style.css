@@ -1,0 +1,41 @@
+nav 
+{
+    background-color: white;
+    font-size: 2em;
+    font-weight: 900;
+}
+
+.nav-item
+{
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+label
+{
+    font-weight: bold;
+}
+
+
+@media (max-width: 1199.98px) 
+{ 
+    nav
+    {
+        font-size: 2em;
+    }
+
+    #userSection
+    {
+        margin-top: .5em;
+        margin-bottom: .5em;
+    }
+
+}
+
+@media (min-width: 1199.98px)
+{
+    nav
+    {
+        font-size: 1.25em;
+    }
+}

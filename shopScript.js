@@ -37,7 +37,7 @@ async function FetchProducts(url)
             productCol.setAttribute('class','col');
 
             let productCard = document.createElement('div');
-            productCard.setAttribute('class','card mx-auto');
+            productCard.setAttribute('class','card mx-auto h-100');
             productCard.setAttribute('style','width: 27em');
 
             let cardBody = document.createElement('div');
@@ -49,15 +49,18 @@ async function FetchProducts(url)
 
             let productName = document.createElement('div');
             productName.setAttribute('class','card-header');
+            productName.setAttribute('style','font-size: 1.5em; font-weight: 600; text-align: center');
 
             productName.textContent = product.product_name + ' - ' + ConvertToEuro(product.product_price);
 
             let productDesc = document.createElement('p');
             productDesc.setAttribute('class','card-text');
+            productDesc.setAttribute('style','margin-top: 0.5em;');
             productDesc.textContent = product.description;
 
             let productIngredientsHeader = document.createElement('h6');
             productIngredientsHeader.setAttribute('class','card-text');
+            productIngredientsHeader.setAttribute('style','font-weight: 600');
             productIngredientsHeader.textContent = "Ingredients:";
 
             let productIngredients = document.createElement('p');

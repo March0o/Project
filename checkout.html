@@ -101,8 +101,8 @@
         <div class="row">  
             <div class="col"><!--Information Card-->
                 <div id="infoCard" class="card h-100 mb-1" style="width: 100%; margin-top: 8%;margin-right: auto; margin-left: auto;">
-                    <div class="card-body">
-                    <h5 style="margin-bottom: 2em;" class="card-title">Customer Information</h5>   
+                  <div style="margin-bottom: 2em;" class="card-header">Customer Information</div>
+                    <div class="card-body">   
                          <div class="row"> <!--Name Inputs-->
                                 <div class="col">
                                     <label for="fNameInput" class="form-label">First Name</label>
@@ -128,8 +128,8 @@
             </div>  
             <div class="col"> <!--Cart Card-->
                 <div class="card h-100 mb-1" style="width: 100%; margin-top: 8%; margin-right: auto; margin-left: auto;">
-                    <div id="cartCardBody" class="card-body">
-                    <h5 style="margin-bottom: 2em;" class="card-title">Your Cart</h5>   
+                  <div style="margin-bottom: 2em;" class="card-header">Your Cart</div>   
+                    <div id="cartCardBody" class="card-body">                 
                     </div>
                     <div id="cartFooter" class="card-footer">
                     </div>
@@ -137,10 +137,10 @@
             </div>
         </div>
 
-        <div style="width: 100%; margin-top: 5em; margin-left: auto; margin-right: auto; margin-left: auto;" class="row">
-            <div id="infoCard" class="card h-100 mb-1"> <!--Payment Card-->
-                <div class="card-body">
-                <h5 style="margin-bottom: 2em;" class="card-title">Payment Method</h5> 
+        <div style="width: 100%; margin-top: 5em; margin-left: auto; margin-right: auto;" class="row">
+            <div id="infoCard" class="card h-100" style="padding-left: 0;padding-right: 0;"> <!--Payment Card-->
+              <div style="margin-bottom: 2em; width: 100%;" class="card-header">Payment Method</div> 
+                <div class="card-body">                
                         <div class="row">
                             <div class="mb-3"> <!--Name Input-->
                                 <label for="cNameInput" class="form-label">Cardholder Name</label>
@@ -182,15 +182,15 @@
                  </div>
             </div>  
             <div class="row" style="margin-top: 1.6em;"> <!--Submit Button-->
-              <button type="submit" class="btn btn-primary" style="width: 90%; margin-left: auto; margin-right: auto;">BUY</button>
+              <button type="submit" class="btn btn-danger" style="width: 90%; height: 5em; margin-left: auto; margin-right: auto;">BUY</button>
             </div>
     </div>
     </form>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <script src="shopScript.js"></script>
-        <script src="accountScript.js"></script>
-        <script src="checkout.js"></script>
+        <script src="scripts/shopScript.js"></script>
+        <script src="scripts/accountScript.js"></script>
+        <script src="scripts/checkout.js"></script>
       </body>
 
 </html>

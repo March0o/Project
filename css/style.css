@@ -36,4 +36,12 @@ label {
   display: inline;
   margin-left: 0.1em;
   vertical-align: middle;
+}
+
+.card-header {
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  background-color: #dc3545;
 }/*# sourceMappingURL=style.css.map */

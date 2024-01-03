@@ -49,7 +49,6 @@ async function FetchProducts(url)
 
             let productName = document.createElement('div');
             productName.setAttribute('class','card-header');
-            productName.setAttribute('style','font-size: 1.5em; font-weight: 600; text-align: center');
 
             productName.textContent = product.product_name + ' - ' + ConvertToEuro(product.product_price);
 
@@ -64,26 +63,28 @@ async function FetchProducts(url)
             productIngredientsHeader.textContent = "Ingredients:";
 
             let productIngredients = document.createElement('p');
-            productIngredients.setAttribute('class','card-text');
+            productIngredients.setAttribute('class','card-text text-secondary');
             productIngredients.textContent = product.ingredients;
 
             let productAddFooter = document.createElement('div');
             productAddFooter.setAttribute('class','card-footer');
+            productAddFooter.setAttribute('style','background-color: #dc3545;');
             
             let productSizeSelect = document.createElement('select');
             productSizeSelect.setAttribute('class','form-select form-select-lg sizeSelect');
-            productSizeSelect.setAttribute('style','width: 10em; height: 3em; float: left');
+            productSizeSelect.setAttribute('style','width: 10em; height: 3em; float: left;');
             for (let i = 0; i < sizes.length; i++)
             {
                 let size = document.createElement('option');
+                size.setAttribute('style','background-color:white; color:black');
                 size.textContent = sizes[i];
                 productSizeSelect.appendChild(size);
             }
             productAddFooter.appendChild(productSizeSelect);
 
             let productAddButton = document.createElement('button');
-            productAddButton.setAttribute('class','btn btn-primary')
-            productAddButton.setAttribute('style','width: 10em; height: 3.75em; float: right;')
+            productAddButton.setAttribute('class','btn btn-light')
+            productAddButton.setAttribute('style','width: 10em; height: 3.75em; float: right; font-weight:800;')
             productAddButton.textContent = "Add to Cart";
             productAddButton.setAttribute('onclick',"AddToCart(this)");
             productAddFooter.appendChild(productAddButton);
@@ -231,7 +232,7 @@ function UpdateDisplayCart()
         buttonListItem.setAttribute('style','text-align:center;')
 
         let checkoutButton = document.createElement('a');  
-        checkoutButton.setAttribute('class','btn btn-primary');
+        checkoutButton.setAttribute('class','btn btn-danger');
         checkoutButton.setAttribute('role','button');
         // checkoutButton.setAttribute('href','checkout.html');
         checkoutButton.setAttribute('onclick','Checkout()');
@@ -337,3 +338,4 @@ function CheckEircode()
         console.log(localStorage.getItem('Eircode'));
     }
 }
+

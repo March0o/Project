@@ -6,7 +6,7 @@
 
 function PopulateCartCard()
 {
-    let cardBody = document.getElementById('cartCardBody');
+    let cardBody = document.getElementById('cartCardBody'); // Get output element
 
     // Create List Element
     let productList = document.createElement('ul');
@@ -16,21 +16,21 @@ function PopulateCartCard()
     // Populate Cart
     let currentCartData = JSON.parse(localStorage.getItem('CartData')); 
 
-    if (Object.values(currentCartData.products) == null || Object.values(currentCartData.products).length == 0)
+    if (Object.values(currentCartData.products) == null || Object.values(currentCartData.products).length == 0) // if empty card (shouldn't happen often)
     {
         cardBody.innerHTML = 'Nothing in Cart'; 
     }
-    else
+    else // If cart has item(s)
     {
     let products = Object.values(currentCartData.products);
 
         for(let i = 0; i < products.length; i++)
         {   
-            if (products[i] == null)
+            if (products[i] == null) // Runs if cart removal left null value within object
             {
                 console.log('null item in cart');
             }
-            else
+            else // Creates cart item
             {
                 let product = products[i];
 
@@ -127,11 +127,13 @@ function SaveCard()
 
     if (checkbox.checked == true)
     {
+        // Get input field values by ID
         let cardholder = document.getElementById('cNameInput').value;
         let cardnumber = document.getElementById('cNumberInput').value;
         let expiry = document.getElementById('expiryInput').value;
         let cvv = document.getElementById('cvvInput').value;
 
+        // Assign data to user and account data
         let user = JSON.parse(localStorage.getItem('LoggedUser'));
         let userList  = JSON.parse(localStorage.getItem('AccountData'));
         let cardDetails = cardholder + '/' + cardnumber + '/' + expiry + '/' + cvv;
@@ -140,7 +142,7 @@ function SaveCard()
 
         for (let i = 0; i < Object.values(userList.users).length; i++ )
         {
-            if (userList.users[i].email == user.email)
+            if (userList.users[i].email == user.email) // Find user by email
             {
                 userList.users[i].card_details = cardDetails;
             }

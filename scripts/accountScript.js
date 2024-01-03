@@ -7,14 +7,14 @@
         {
             'users': []
         };
-        AccountData.users.push( {'first_name': 'testPerson', 'last_name' : 'testLastName', 'email':'test@email.com','password':'test','card_details':''} );
+        AccountData.users.push( {'first_name': 'testPerson', 'last_name' : 'testLastName', 'email':'test@email.com','password':'test','card_details':''} ); // test account
         localStorage.setItem('AccountData', JSON.stringify(AccountData));
 
-        console.log(AccountData);
+        console.log(AccountData); // To see accounts
     }
     else
     {
-        console.log(JSON.parse(localStorage.getItem('AccountData')));
+        console.log(JSON.parse(localStorage.getItem('AccountData'))); // To see accounts
     }
 
     // Determine if logged in
@@ -22,16 +22,16 @@
     {
         let loggedUser = 'Guest';
         localStorage.setItem('LoggedUser', loggedUser);
-        console.log('New Guest');
+        console.log('New Guest'); // log current User
     }
     else if (localStorage.getItem('LoggedUser') === 'Guest')
     {
-        console.log('Guest');
+        console.log('Guest'); // log current User
     }
     else
     {
-        console.log(JSON.parse(localStorage.getItem('LoggedUser')));
-        ChangeDisplay();
+        console.log(JSON.parse(localStorage.getItem('LoggedUser'))); // log current User
+        ChangeDisplay(); // Update navbar with user info
     }
 
 })();
@@ -40,9 +40,11 @@ function SignIn()
 {
     let detailsForm = document.getElementById('SignIn/UserInfo');
 
-    let emailInput = detailsForm.children[0].children[0].value;
-    let passwordInput = detailsForm.children[1].children[0].value;
+    // Get input fields
+    let emailInput = detailsForm.children[0].children[0].value; 
+    let passwordInput = detailsForm.children[1].children[0].value; 
 
+    // Get & Search Account Data
     let AccountData = JSON.parse(localStorage.getItem('AccountData'));
     let userFound = false
 
@@ -61,21 +63,17 @@ function SignIn()
 
     if (userFound == false)
     {
-        console.log('User Not Found');
-
         let alertDiv = document.getElementById('SignInAlertDiv');
         alertDiv.setAttribute('class','alert alert-danger');
         alertDiv.setAttribute('role','alert');
         alertDiv.setAttribute('style','margin-top: 1em;')
         alertDiv.innerHTML = "No user found with these credentials, please enter info again";
     }
-
-    console.log('worked-ish');
 }
 
 function ChangeDisplay()
 {
-    let user = JSON.parse(localStorage.getItem('LoggedUser'));
+    let user = JSON.parse(localStorage.getItem('LoggedUser')); // get current user info
 
     // Sign Out Button Re-Assign
     let signOutBtn = document.getElementById('Register/SignOut');
@@ -96,8 +94,9 @@ function ChangeDisplay()
         "E-mail",
         "Password",
         "Saved Card"
-    ]
-    let infoValues = Object.values(user);
+    ] // Account Keys as array
+
+    let infoValues = Object.values(user); // get values of user attributes
     for (let i = 0; i < infoKeys.length; i++)
     {
         // Create info Div
@@ -111,11 +110,11 @@ function ChangeDisplay()
 
         if (i == infoKeys.length - 1)
         {
-            if (infoValues[i] == "")
+            if (infoValues[i] == "") // if Empty field
             {
                 infoField.value = "None";
             }
-            else
+            else // if card saved
             {
             let cNumber = infoValues[i].split("/")[1];
             infoField.value = "Card Ending in " + cNumber.substr(cNumber.length - 4);
@@ -125,6 +124,8 @@ function ChangeDisplay()
         {
             infoField.value = infoValues[i];
         }
+
+        // Append to Element
         infoDiv.appendChild(infoLabel);
         infoDiv.appendChild(infoField);
 
@@ -133,10 +134,8 @@ function ChangeDisplay()
         
 }
 
-
 function SignOut()
 {
     let loggedUser = 'Guest';
     localStorage.setItem('LoggedUser', loggedUser);
-    console.log('New Guest');
 }

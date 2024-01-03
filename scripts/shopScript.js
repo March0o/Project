@@ -1,7 +1,6 @@
 (function() {
     const productJSONUrl = 'https://raw.githubusercontent.com/March0o/JsonProject/main/FoodData.json';
     FetchProducts(productJSONUrl);
-    CheckEircode();
 
     // Shopping Cart Initilize   
     if (localStorage.getItem('CartData') === null) 
@@ -13,8 +12,6 @@
         };
         localStorage.setItem('CartData', JSON.stringify(CartData));
     }
-    
-    UpdateDisplayCart();  
 })();
 
 async function FetchProducts(url)
@@ -234,7 +231,6 @@ function UpdateDisplayCart()
         let checkoutButton = document.createElement('a');  
         checkoutButton.setAttribute('class','btn btn-danger');
         checkoutButton.setAttribute('role','button');
-        // checkoutButton.setAttribute('href','checkout.html');
         checkoutButton.setAttribute('onclick','Checkout()');
         checkoutButton.setAttribute('style','width:10em; border-radius: 15px');
         checkoutButton.innerHTML = 'Checkout';
@@ -317,16 +313,24 @@ function ClearCart()
 function CheckEircode()
 {
     let url = window.location.href
-    console.log(url);
 
     if (url.includes("Eircode="))
     {
         let unformattedEircode = url.split("Eircode=")[1];
-        let eircodeP1 = unformattedEircode.split("+")[0];
-        let eircodeP2 = unformattedEircode.split('+')[1];
-        let eircode = eircodeP1 + " " + eircodeP2;
-        console.log(eircode);
-        localStorage.setItem('Eircode', eircode);
+        if (unformattedEircode == "")
+        {
+            localStorage.setItem('Eircode', "")
+            console.log("No Eircode");
+        }
+        else
+        {
+            let eircodeP1 = unformattedEircode.split("+")[0];
+            let eircodeP2 = unformattedEircode.split('+')[1];
+            let eircode = eircodeP1 + " " + eircodeP2;
+            console.log(eircode);
+            localStorage.setItem('Eircode', eircode);
+        }
+        
     }
     else if (localStorage.getItem('Eircode') === null)
     {
@@ -335,7 +339,7 @@ function CheckEircode()
     }
     else
     {
-        console.log(localStorage.getItem('Eircode'));
+        console.log(localStorage.getItem('Eircode') + "No Eircode");
     }
 }
 

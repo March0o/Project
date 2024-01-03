@@ -96,17 +96,28 @@ function AutofillFields()
     let cardNumber = document.getElementById('cNumberInput');
     let cardExpiry = document.getElementById('expiryInput');
     let cardCcv = document.getElementById('cvvInput');
-    console.log(user.card_details);
 
     // Autofill values
     firstNameInput.value = user.first_name;
     lastNameInput.value = user.last_name;
     emailInput.value = user.email;
-    eircodeInput.value = eircode;
-    cardholderName.value = user.card_details.split("/")[0];
-    cardNumber.value = user.card_details.split("/")[1];
-    cardExpiry.value = user.card_details.split("/")[2] + "/" + user.card_details.split("/")[3];
-    cardCcv.value = user.card_details.split("/")[4];
+
+    if (eircode == undefined)
+    {
+        eircodeInput.value = "";
+    }
+    else
+    {
+        eircodeInput.value = eircode;
+    }
+
+    if (user.card_details != "") // if Card is saved, Populate
+    {
+        cardholderName.value = user.card_details.split("/")[0];
+        cardNumber.value = user.card_details.split("/")[1];
+        cardExpiry.value = user.card_details.split("/")[2] + "/" + user.card_details.split("/")[3];
+        cardCcv.value = user.card_details.split("/")[4];
+    }
 
 }
 

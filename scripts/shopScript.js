@@ -1,7 +1,7 @@
 (function() {
     const productJSONUrl = 'https://raw.githubusercontent.com/March0o/JsonProject/main/FoodData.json';
     FetchProducts(productJSONUrl); // Display products
-    UpdateDisplayCart();
+    
 
     // Shopping Cart Initilize   
     if (localStorage.getItem('CartData') === null) // If no cart exists
@@ -13,6 +13,7 @@
         };
         localStorage.setItem('CartData', JSON.stringify(CartData));
     }
+    UpdateDisplayCart();
 })();
 
 async function FetchProducts(url)
